@@ -1,0 +1,42 @@
+
+.content {
+  position: absolute;
+  margin-left: 500px;
+  transform: translateY(-50%);
+  text-align: left;
+  width: 400px;
+  height: 500px;
+  overflow: scroll;
+  background: white;
+  z-index: 1;
+  padding: 20px;
+  border-radius: 5px;
+  color: gray;
+}
+
+img {
+  width: 200px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.story-title {
+  text-align: center;
+  color: rgb(100, 200, 400);
+}
+
+.story-paragraph {
+  margin-top: 10px;
+}
+
+
+span.quote {
+  font-style: italic;
+  font-family: times;
+}
+
+div.span {
+  width: 300px;
+  margin-left:20px;
+  margin-top: 10px;
+}

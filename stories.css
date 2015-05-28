@@ -1,0 +1,106 @@
+
+body {
+  font-family: "helvetica neue";
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.stories-link {
+  margin-left: 14px;
+  width: 200px;
+}
+
+.title-link {
+  text-decoration: none;
+  color: rgb(150, 200, 250);
+  background: white;
+  padding: 10px;
+  display: block;
+  width: 100px;
+  margin-top: 10px;
+  border: 3px solid white;
+}
+
+.hovered {
+  border: 3px solid black;
+  background-color: #ccc;
+  color: black;
+}
+
+.stories-list {
+  background: rgb(32,80,116);
+  width: 150px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 20px;
+}
+
+.stories-list h3 {
+  color: #ccc;
+}
+
+.hovered-content {
+  position: absolute;
+  left: 150px;
+  top: 0px;
+  text-align: left;
+}
+
+.white {
+  background: #ccc;
+  width: 300px;
+  height: 370px;
+  padding: 10px;
+  color: rgb(70, 135, 175);
+  font-style: italic;
+}
+
+.hovered-content h4 {
+  text-align: center;
+}
+
+
+button.next-page {
+  padding: 0;
+  width: 0;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+  border-top: 20px solid #606066;
+  background: none;
+  margin-top: 20px;
+  border-bottom: none;
+}
+
+.next-page:hover, .prev-page:hover {
+  cursor: pointer;
+}
+
+button.prev-page {
+  padding: 0;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #606066;
+  background: none;
+  margin-bottom: 10px;
+  border-top: none;
+}
+
+.modal {
+  background: rgba(0,0,0,0.6);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 0;
+}

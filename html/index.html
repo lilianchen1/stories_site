@@ -1,0 +1,82 @@
+<!Doctype html>
+
+<html>
+  <head>
+    <title>Yiling's stories</title>
+    <link rel="stylesheet" href="../stories.css" type="text/css">
+    <link rel="stylesheet" href="../story.css" type="text/css">
+  </head>
+  <body>
+    <script src="../javascript/jquery-2.1.1.js"></script>
+    <script src="../javascript/show_summary.js"></script>
+
+    <div class="index-content">
+
+      <div class="stories-list"><h3>My Stories</h3>
+
+        <button class="prev-page"></button>
+
+        <div class="stories-link" data-name="anotherdoor">
+          <a class="title-link" href="javascript:void(0)">When one door closes</a>
+          <div class="hovered-content hidden">
+            <div class="white">
+              <h4>When One Door Closes, Another Opens</h4>
+              <div class="summary">
+                Here, I write about the door that closed and the one that opened.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stories-link" data-name="lessonlearned">
+          <a class="title-link" href="javascript:void(0)">Lessons from a bad job</a>
+          <div class="hovered-content hidden">
+            <div class="white">
+              <h4>What I Have Learned From A Job That Wasn't Meant To Be</h4>
+              <div class="summary">
+                My high school guidance counselor once said to a group of my classmates
+                and I something along the lines of: I think everyone should experience
+                a bad breakup, a bad job, and a bad car. You will learn a lot about life
+                from these three things and they will shape you into stronger individuals.
+                <br>
+                <br>
+                Here, I write what I have learned from a bad job.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stories-link" data-name="heartSF">
+          <a class="title-link" href="javascript:void(0)">I followed my heart to SF</a>
+          <div class="hovered-content hidden">
+            <div class="white">
+              <h4>I Followed My Heart To San Francisco</h4>
+              <div class="summary">
+                To follow your head or your heart: that is the question.
+                I like to think of myself as a logical person; I majored in
+                a scientific field and for the longest time I thought I was
+                going to walk down the academia path. Nevertheless, I guess
+                deep down I'm a romantic. I was faced with a tough decision
+                a little before graduation, and I chose my heart.
+                <br>
+                <br>
+                Here, I write about the story of when I followed my heart.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="next-page">Con't</button>
+
+      </div>
+    </div>
+
+    <script>
+       $(function() {
+
+         $(".index-content").showSummary();
+
+       });
+    </script>
+  </body>
+</html>
