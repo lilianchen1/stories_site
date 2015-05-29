@@ -23,8 +23,11 @@ $.Summary.prototype.handleHover = function() {
   this.$el.on("mouseleave", ".stories-link", function(event) {
     if ($(".modal").length === 0) {
       $("a.title-link").removeClass("hovered");
-      fn.$hoveredSummaryDiv.fadeTo(700, 0);
-      fn.$hoveredSummaryDiv.addClass("hidden"); // want to do this after fade...
+      var left = $(event.currentTarget).children()[1];
+
+      $(left).fadeTo(700, 0, function() {
+        $(left).addClass("hidden"); 
+      });
     }
   });
 
