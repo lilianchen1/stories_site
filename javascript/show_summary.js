@@ -105,14 +105,21 @@ $.Summary.prototype.handleFullDisplay = function() {
 
 $.Summary.prototype.handleScroll = function() {
   $(".content").on("scroll", function() {
-    $(".hide-bottom").fadeTo(500, 0);
+    $(".hide-bottom").fadeOut(500);
   });
 };
 
 $.Summary.prototype.handleModal = function() {
   var fn = this;
   $(".modal").on("click", function(event) {
-    $(".modal").remove();
-    $(".content").remove();
+
+    $(".content").animate({
+      top: "-=100%"}, 800, function() {
+        $(".content").remove();
+        $(".modal").fadeOut(500, function() {
+          $(".modal").remove();
+        });
+    });
+
   });
 };
