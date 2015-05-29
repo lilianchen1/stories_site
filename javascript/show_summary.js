@@ -6,6 +6,7 @@ $.Summary = function(el) {
   this.$el = $(el);
   this.handleHover();
   this.handleFullDisplay();
+  this.handlePages();
 };
 
 $.Summary.prototype.handleHover = function() {
@@ -29,6 +30,43 @@ $.Summary.prototype.handleHover = function() {
       });
     }
   });
+
+};
+
+$.Summary.prototype.handlePages = function() {
+  var fn = this;
+  $("button").on("click", function(event) {
+    if (event.currentTarget.className === "next-page") {
+      $("button.next-page").fadeTo(0, 0);
+      $(".list-wrap").slideUp("slow", function() {
+        fn.toggleActive();
+        $(".list-wrap").show("slow", function() {
+          $("button.prev-page").fadeTo(500, 1);
+        });
+      });
+    }
+    else if (event.currentTarget.className === "prev-page") {
+      $("button.prev-page").fadeTo(0, 0);
+      $(".list-wrap").slideUp("slow", function() {
+        fn.toggleActive();
+        $(".list-wrap").show("show", function() {
+          $("button.next-page").fadeTo(500, 1);
+        });
+      });
+    }
+  });
+};
+
+$.Summary.prototype.toggleActive = function() {
+
+  this.$active = $(".active");
+  this.$inactive = $(".inactive");
+
+  this.$active.removeClass("active");
+  this.$active.addClass("inactive");
+
+  this.$inactive.removeClass("inactive");
+  this.$inactive.addClass("active");
 
 };
 
@@ -89,6 +127,10 @@ $.Summary.prototype.handleFullDisplay = function() {
       "and mostly likely I would have liked my job a lot better. Perhaps I am missing out on a potentially amazing life, " +
       "but I know for sure that I would have missed out on so many wonderful experiences had this road been the road not taken.<br><br>" +
       "So my philosophy, be a romantic once in awhile, the heart knows where it belongs.</p><div class='hide-bottom'><p>Scroll to keep reading</p></div></div>");
+    }
+
+    else if (name === "placeholder") {
+      $("body").append("<div class='content'></div>");
     }
 
     $(".content").animate({

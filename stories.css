@@ -40,6 +40,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   margin-left: 20px;
+  height: 375px;
 }
 
 .stories-list h3 {
@@ -86,14 +87,18 @@ button.next-page {
 	height: 0;
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
-  border-top: 20px solid #606066;
+  border-top: 20px solid lightyellow;
   background: none;
   margin-top: 20px;
   border-bottom: none;
 }
 
-.next-page:hover, .prev-page:hover {
-  cursor: pointer;
+.next-page:hover {
+  border-top: 20px solid lightblue;
+}
+
+.prev-page:hover {
+  border-bottom: 20px solid lightblue;
 }
 
 button.prev-page {
@@ -102,11 +107,12 @@ button.prev-page {
   height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 20px solid #606066;
+  border-bottom: 20px solid lightyellow;
   background: none;
   margin-bottom: 10px;
   border-top: none;
-  visibility: hidden;
+  /*visibility: hidden;*/
+  opacity: 0;
 }
 
 .modal {
@@ -117,4 +123,8 @@ button.prev-page {
   right: 0;
   position: fixed;
   z-index: 0;
+}
+
+.inactive {
+  display: none;
 }
