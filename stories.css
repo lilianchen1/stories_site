@@ -51,15 +51,28 @@ body {
   left: 150px;
   top: 0px;
   text-align: left;
+  opacity: 0;
 }
 
 .white {
-  background: #ccc;
-  width: 300px;
-  height: 370px;
+  background: white;
+  width: 280px;
+  height: 350px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
   padding: 10px;
   color: rgb(70, 135, 175);
   font-style: italic;
+}
+
+.pic-display img {
+  width: 320px;
+  height: 390px;
+  position: absolute;
+  left: 235px;
+  top: 0px;
+  opacity: 0.6;
 }
 
 .hovered-content h4 {

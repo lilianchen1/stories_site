@@ -4,10 +4,11 @@ $.fn.showSummary = function() {
 
 $.Summary = function(el) {
   this.$el = $(el);
-  this.bindEvent();
+  this.handleHover();
+  this.handleFullDisplay();
 };
 
-$.Summary.prototype.bindEvent = function() {
+$.Summary.prototype.handleHover = function() {
   var fn = this;
 
   this.$el.on("mouseenter", ".stories-link", function(event) {
@@ -16,19 +17,26 @@ $.Summary.prototype.bindEvent = function() {
     $(href).addClass("hovered");
     fn.$hoveredSummaryDiv = $($link.children()[1]);
     fn.$hoveredSummaryDiv.removeClass("hidden");
+    fn.$hoveredSummaryDiv.fadeTo(700, 0.7);
   });
 
   this.$el.on("mouseleave", ".stories-link", function(event) {
     if ($(".modal").length === 0) {
-      fn.$hoveredSummaryDiv.addClass("hidden");
       $("a.title-link").removeClass("hovered");
+      fn.$hoveredSummaryDiv.fadeTo(700, 0);
+      fn.$hoveredSummaryDiv.addClass("hidden"); // want to do this after fade...
     }
   });
 
+};
+
+$.Summary.prototype.handleFullDisplay = function() {
+  var fn = this;
   this.$el.on("click", ".stories-link", function(event) {
     var $target = $(event.currentTarget);
     var name = $target.data("name");
     $("body").append("<div class='modal'></div>");
+
     if (name === "anotherdoor") {
       $("body").prepend("<div class='content'><h3 class='story-title'>When One Door Closes, Another Opens</h3><img src='../pics/grand_canyon.png' /><div class='story-paragraph'>I like motivational quotations. One of my favorite " +
       "so far, that I've encountered on the internet, is:<br><div class='span'><span class='quote'>Sometimes the door closes on a relationship, not because we failed but because something bigger " +
@@ -39,7 +47,8 @@ $.Summary.prototype.bindEvent = function() {
       "was meant for that pathway, and not getting into medical school meant I was a failure. Even when I dreaded going to lab, hated being a patient escort and doing " +
       "other 'pre-med' activities, I kept saying to myself that I am doing this for medical school, for a future in medicine.<br><br>" +
       "When I didn't get into medical school, part of me felt like a failure and that part <span><strong>hurts</strong></span>, a lot. Nevertheless, part of me felt liberated. " +
-      "Now, I'm no longer restrained to that one path, and so many opportunities are now opening for me.</div></div>");
+      "Now, I'm no longer restrained to that one path, and so many opportunities are now opening for me.</div><div class='hide-bottom'><p>Scroll to keep reading</p></div></div>");
+
     }
 
     else if (name === "lessonlearned") {
@@ -62,7 +71,7 @@ $.Summary.prototype.bindEvent = function() {
         "I learned to be strong, to do what was best for me even if I ended up leaving a bad image behind. " +
         "I learned that I have to take care of myself and look out for my best interest because no one else will." +
         "<br><br>I guess in the end, this job gave me the confidence to choose a path that I would enjoy walking on, " +
-        "even if it's an unexpected path with an unknown ending.</p></div>");
+        "even if it's an unexpected path with an unknown ending.</p><div class='hide-bottom'><p>Scroll to keep reading</p></div></div>");
     }
 
     else if (name === "heartSF") {
@@ -77,12 +86,14 @@ $.Summary.prototype.bindEvent = function() {
       "I'm not saying it would have been bad for me to walk down the Academia/Medicine pathway. There would have been a greater chance I'd be in medical school "+
       "and mostly likely I would have liked my job a lot better. Perhaps I am missing out on a potentially amazing life, " +
       "but I know for sure that I would have missed out on so many wonderful experiences had this road been the road not taken.<br><br>" +
-      "So my philosophy, be a romantic once in awhile, the heart knows where it belongs.</p></div>");
+      "So my philosophy, be a romantic once in awhile, the heart knows where it belongs.</p><div class='hide-bottom'><p>Scroll to keep reading</p></div></div>");
     }
 
     $(".content").animate({
       top: "50%",
     }, 1000);
+
+    this.handleScroll();
 
     this.handleModal();
 
@@ -90,7 +101,14 @@ $.Summary.prototype.bindEvent = function() {
 
 };
 
+$.Summary.prototype.handleScroll = function() {
+  $(".content").on("scroll", function() {
+    $(".hide-bottom").fadeTo(500, 0);
+  });
+};
+
 $.Summary.prototype.handleModal = function() {
+  var fn = this;
   $(".modal").on("click", function(event) {
     $(".modal").remove();
     $(".content").remove();

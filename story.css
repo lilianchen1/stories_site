@@ -40,3 +40,19 @@ div.span {
   margin-left:20px;
   margin-top: 10px;
 }
+
+.hide-bottom {
+  width: 400px;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  color: lightblue;
+  font-size: 14px;
+  font-style: italic;
+  background: -webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,0.9) 70%, rgba(237,237,237,0.5) 100%);
+}
+
+.hide-bottom p {
+  margin-top: 30px;
+}
