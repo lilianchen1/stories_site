@@ -111,7 +111,7 @@ button.prev-page {
   background: none;
   margin-bottom: 10px;
   border-top: none;
-  /*visibility: hidden;*/
+  visibility: hidden;
   opacity: 0;
 }
 

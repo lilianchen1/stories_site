@@ -37,19 +37,23 @@ $.Summary.prototype.handlePages = function() {
   var fn = this;
   $("button").on("click", function(event) {
     if (event.currentTarget.className === "next-page") {
-      $("button.next-page").fadeTo(0, 0);
+      $("button.next-page").css("visibility", "hidden");
+      $("button.next-page").css("opacity", "0");
       $(".list-wrap").slideUp("slow", function() {
         fn.toggleActive();
         $(".list-wrap").show("slow", function() {
+          $("button.prev-page").css("visibility", "visible");
           $("button.prev-page").fadeTo(500, 1);
         });
       });
     }
     else if (event.currentTarget.className === "prev-page") {
-      $("button.prev-page").fadeTo(0, 0);
+      $("button.prev-page").css("visibility", "hidden");
+      $("button.prev-page").css("opacity", 0);
       $(".list-wrap").slideUp("slow", function() {
         fn.toggleActive();
         $(".list-wrap").show("show", function() {
+          $("button.next-page").css("visibility", "visible");
           $("button.next-page").fadeTo(500, 1);
         });
       });
