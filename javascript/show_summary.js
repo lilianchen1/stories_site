@@ -15,17 +15,17 @@ $.Summary.prototype.handleHover = function() {
     var $link = $(event.currentTarget);
     var href = $link.children()[0];
     $(href).addClass("hovered");
-    var $hoveredSummaryDiv = $($link.children()[1]);
-    $hoveredSummaryDiv.removeClass("hidden");
-    $hoveredSummaryDiv.fadeTo(700, 0.7);
+    fn.$hoveredSummaryDiv = $($link.children()[1]);
+    fn.$hoveredSummaryDiv.removeClass("hidden");
+    fn.$hoveredSummaryDiv.fadeTo(700, 0.7);
   });
 
   this.$el.on("mouseleave", ".stories-link", function(event) {
     if ($(".modal").length === 0) {
       $("a.title-link").removeClass("hovered");
-      var left = $(event.currentTarget).children()[1];
-      $(left).fadeTo(700, 0, function() {
-        $(left).addClass("hidden");
+      fn.$left = $($(event.currentTarget).children()[1]);
+      fn.$left.fadeOut(700, function() {
+        fn.$left.addClass("hidden");
       });
     }
   });
