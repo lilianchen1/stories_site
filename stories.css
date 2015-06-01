@@ -53,6 +53,7 @@ body {
   top: 0px;
   text-align: left;
   opacity: 0;
+  visibility: hidden;
 }
 
 .white {
@@ -127,4 +128,12 @@ button.prev-page {
 
 .inactive {
   display: none;
+}
+
+.view-more {
+  font-style: normal;
+  font-size: 14px;
+  color: lightblue;
+  text-align: center;
+  margin-left: 22%;
 }

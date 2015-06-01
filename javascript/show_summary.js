@@ -4,12 +4,14 @@ $.fn.showSummary = function() {
 
 $.Summary = function(el) {
   this.$el = $(el);
-  this.handleHover();
+  this.handleMouseEnter();
+  this.handleMouseLeave();
   this.handleFullDisplay();
   this.handlePages();
 };
 
-$.Summary.prototype.handleHover = function() {
+$.Summary.prototype.handleMouseEnter = function() {
+
   var fn = this;
 
   this.$el.on("mouseenter", ".stories-link", function(event) {
@@ -17,17 +19,33 @@ $.Summary.prototype.handleHover = function() {
     var href = $link.children()[0];
     $(href).addClass("hovered");
     fn.$hoveredSummaryDiv = $($link.children()[1]);
-    fn.$hoveredSummaryDiv.removeClass("hidden");
-    fn.$hoveredSummaryDiv.fadeTo(700, 0.7);
+    fn.$hoveredSummaryDiv.css("visibility", "visible");
+    fn.$hoveredSummaryDiv.fadeTo(600, 0.7);
+
+    if (fn.$left) {
+      if (fn.$left.parent().data("name") === fn.$hoveredSummaryDiv.parent().data("name")) {
+
+        fn.$left.stop().fadeTo(600, 0.7);
+
+      }
+    }
+
   });
 
+
+};
+
+$.Summary.prototype.handleMouseLeave = function() {
+  var fn = this;
   this.$el.on("mouseleave", ".stories-link", function(event) {
     if ($(".modal").length === 0) {
       $("a.title-link").removeClass("hovered");
       fn.$left = $($(event.currentTarget).children()[1]);
-      fn.$left.fadeOut(700, function() {
-        fn.$left.addClass("hidden");
+
+      fn.$left.fadeTo(600, 0, function() {
+        fn.$left.css("visibility", "hidden");
       });
+
     }
   });
 
@@ -134,7 +152,7 @@ $.Summary.prototype.handleFullDisplay = function() {
     }
 
     else if (name === "placeholder") {
-      $("body").append("<div class='content'></div>");
+      $("body").append("<div class='content'>Placeholder full story</div>");
     }
 
     $(".content").animate({
