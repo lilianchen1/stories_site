@@ -151,7 +151,15 @@ $.Summary.prototype.handleFullDisplay = function() {
       "So my philosophy, be a romantic once in awhile, the heart knows where it belongs.</p><div class='hide-bottom'><p>Scroll to keep reading</p></div></div>");
     }
 
-    else if (name === "placeholder") {
+    else if (name === "placeholder1") {
+      $("body").append("<div class='content'>Placeholder full story</div>");
+    }
+
+    else if (name === "placeholder2") {
+      $("body").append("<div class='content'>Placeholder full story</div>");
+    }
+
+    else if (name === "placeholder3") {
       $("body").append("<div class='content'>Placeholder full story</div>");
     }
 
